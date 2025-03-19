@@ -11,7 +11,6 @@ def read_file(file_name:str):
     return df
 
 # %%
-
 file_names = os.listdir("../../data/ipea/")
 
 dfs = []
@@ -19,8 +18,6 @@ for i in file_names:
     file_name = i.split(".")[0]
     dfs.append(read_file(file_name))
 
-
-# %%
 
 df_full = (pd.concat(dfs, axis=1)
              .reset_index()
