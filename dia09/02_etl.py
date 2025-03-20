@@ -10,7 +10,6 @@ with open("etl.sql") as open_file:
 print(query)
 
 # %%
-
 engine = sqlalchemy.create_engine("sqlite:///../data/olist.db")
 df = pd.read_sql_query(query, con=engine)
 df
@@ -24,10 +23,9 @@ df["cluster"] =  kmean.labels_
 df
 
 # %%
-df.to_sql("sellers_cluster",
-          con=engine,
-          index=False,
-          if_exists="replace",
+df.to_sql(
+    "sellers_cluster",
+    con=engine,
+    index=False,
+    if_exists="replace",
 )
-
-# %%
